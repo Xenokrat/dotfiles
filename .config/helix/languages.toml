@@ -1,0 +1,16 @@
+[[language]]
+name = "gdscript"
+scope = "source.gdscript"
+injection-regex = "gdscript"
+file-types = ["gd"]
+shebangs = []
+roots = ["project.godot"]
+auto-format = true
+formatter = { command = "gdformat", args = ["-"] }
+comment-tokens = ["#", "##"]
+indent = { tab-width = 4, unit = "\t" }
+language-servers = [ { name = "gdscript" } ]
+
+[language-server.gdscript]
+command = "ncat"
+args = [ "127.0.0.1", "6005", ]
