@@ -1,1 +1,66 @@
+theme = "doom-one"
 
+[editor]
+line-number = "relative"
+true-color = true
+bufferline = "multiple"
+end-of-line-diagnostics = "hint"
+trim-trailing-whitespace = true
+completion-replace = true
+
+[editor.file-picker]
+hidden = false
+
+[editor.indent-guides]
+render = true
+character = ">"
+skip-levels = 0
+
+[editor.inline-diagnostics]
+cursor-line = "warning" # show warnings and errors on the cursorline inline
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.statusline]
+left = [
+  "mode",
+  "spinner",
+  "version-control",
+  "spacer",
+  "separator",
+  "file-name",
+  "read-only-indicator",
+  "file-modification-indicator",
+
+]
+center = []
+right = [
+  "diagnostics",
+  "workspace-diagnostics",
+  "position",
+  "total-line-numbers",
+  "position-percentage",
+  "file-encoding",
+  "file-line-ending",
+  "file-type",
+  "register",
+  "selections",
+]
+separator = "│"
+
+[editor.auto-save]
+focus-lost  = true
+after-delay.enable = true
+after-delay.timeout = 300000
+
+[keys.normal]
+C-y = [
+  ':sh rm -f /tmp/unique-file',
+  ':insert-output yazi %{buffer_name} --chooser-file=/tmp/unique-file',
+  ':insert-output echo "\x1b[?1049h\x1b[?2004h" > /dev/tty',
+  ':open %sh{cat /tmp/unique-file}',
+  ':redraw',
+]
